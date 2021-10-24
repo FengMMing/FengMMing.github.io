@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Http1(极客)</title>
+      <link href="/2021/10/24/Http1-%E6%9E%81%E5%AE%A2/"/>
+      <url>/2021/10/24/Http1-%E6%9E%81%E5%AE%A2/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Http1-极客大挑战"><a href="#Http1-极客大挑战" class="headerlink" title="Http1(极客大挑战)"></a>Http1(极客大挑战)</h2><h3 id="1、打开题目"><a href="#1、打开题目" class="headerlink" title="1、打开题目"></a>1、打开题目</h3><p><img src="/2021/10/24/Http1-%E6%9E%81%E5%AE%A2/1.png"></p><blockquote><p>发现什么都没有，接着打开源码观察</p></blockquote><p><img src="/2021/10/24/Http1-%E6%9E%81%E5%AE%A2/2.png"></p><blockquote><p>在其中发现了Secret.php</p></blockquote><h3 id="2、打开Secret-php"><a href="#2、打开Secret-php" class="headerlink" title="2、打开Secret.php"></a>2、打开Secret.php</h3><p><img src="/2021/10/24/Http1-%E6%9E%81%E5%AE%A2/3.png"></p><blockquote><p>要求我们从图片上的网址上进入</p><p>及此考察的是请求头的知识，用Burp Suit进行抓包</p></blockquote><h3 id="3、抓包"><a href="#3、抓包" class="headerlink" title="3、抓包"></a>3、抓包</h3><h3 id><a href="#" class="headerlink" title></a><img src="/2021/10/24/Http1-%E6%9E%81%E5%AE%A2/4.png"></h3><h4 id="1、加入Referer"><a href="#1、加入Referer" class="headerlink" title="1、加入Referer"></a>1、加入Referer</h4><blockquote><p>(Referer属于请求头当中的一部分，告诉从哪个链接过来的)</p></blockquote><p><img src="/2021/10/24/Http1-%E6%9E%81%E5%AE%A2/5.png"></p><blockquote><p>发现需要修改浏览器的类型为：Syclover(即修改User-Agent)</p><p><em><strong>User-Agent是浏览器的身份标识字符串。User-Agent会告诉网站服务器，访问者是通过什么工具来请求的，如果是爬虫请求，一般会拒绝，如果是用户浏览器，就会应答</strong></em></p></blockquote><h4 id="2、修改User-Agent"><a href="#2、修改User-Agent" class="headerlink" title="2、修改User-Agent"></a>2、修改User-Agent</h4><p><img src="/2021/10/24/Http1-%E6%9E%81%E5%AE%A2/6.png"></p><blockquote><p>又发现其需要在本地进行访问，则需要加上：X-Forwarded-For</p></blockquote><h4 id="3、加上X-Forwarded-For"><a href="#3、加上X-Forwarded-For" class="headerlink" title="3、加上X-Forwarded-For"></a>3、加上X-Forwarded-For</h4><pre class=" language-http"><code class="language-http"><span class="token header-name keyword">X-Forwarded-For:</span> 127.0.0.1</code></pre><p><img src="/2021/10/24/Http1-%E6%9E%81%E5%AE%A2/7.png"></p><h4 id="4、最终得到flag"><a href="#4、最终得到flag" class="headerlink" title="4、最终得到flag"></a>4、最终得到flag</h4><blockquote><p>flag{9c86db35-aaae-4287-ae6b-af90dee26f85}</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> -CTF -极客大挑战 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>BabySQL(极客大挑战)</title>
       <link href="/2021/10/21/BabySQL-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-1/"/>
       <url>/2021/10/21/BabySQL-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-1/</url>

